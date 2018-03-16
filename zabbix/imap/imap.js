@@ -471,6 +471,12 @@
 		if (cr>0) el.delay(cr).slideUp('fast');
 	};
 	
+	function openWinbox(hh) {
+		alert(hh)
+		_imap.markersList[hh].host_info.interfaces.each(function(el) {
+			alert(el)
+			});
+	}
 	function getHostLocation(hh) {
 		_imap.map.off('click');
 		var el;
@@ -1063,6 +1069,7 @@
 		
 		rstr = rstr + '<div class=hostcontrol>';
 		rstr = rstr + '<div class="hostItems" id="hostItems'+host_id+'"></div>';
+		rstr = rstr + '<a onClick="openWinbox('+host_id+')" href="#" Title="'+mlocale('Open Winbox')+'"><img src="imap/images/target.png"></a>';
 		rstr = rstr + '<a onClick="getHostLocation('+host_id+')" href="#" Title="'+mlocale('Change location')+'"><img src="imap/images/target.png"></a>';
 		rstr = rstr + '<a onClick="reQdelHostLocation('+host_id+');" href="#" Title="'+mlocale('Delete location')+'"><img src="imap/images/target-del.png"></a>';
 		if (_imap.settings.links_enabled) rstr = rstr + '<a href="#" Title="'+mlocale('Add a link to another host')+'" onClick="addLinkHost('+host_id+');"><img src="imap/images/link.png"></a>';
