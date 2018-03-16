@@ -869,14 +869,15 @@
 				*/
 				
 				for (var nn in data) {
-					var trigger = data[+nn];
-					if (!trigger) continue;
-					if (!trigger.value==1) continue;
-					if (!_imap.markersList[trigger.hostid]) continue;
-					_imap.markersList[trigger.hostid].triggers[trigger.triggerid] = trigger;
-					_imap.markersList[trigger.hostid].triggers[trigger.triggerid].lhi = lhi;
-					addLastTrigger(trigger);
-					luhost[trigger.hostid] = trigger.hostid;
+ 				    var trigger = data[+nn];
+                                    if (!trigger) continue;
+                                    if (!trigger.value==1) continue;
+                                    if (!_imap.markersList[trigger.hosts[0].hostid]) continue;
+                                    _imap.markersList[trigger.hosts[0].hostid].triggers[trigger.triggerid] = trigger;
+
+                                    _imap.markersList[trigger.hosts[0].hostid].triggers[trigger.triggerid].lhi = lhi;
+                                    addLastTrigger(trigger);
+                                    luhost[trigger.hosts[0].hostid] = trigger.hosts[0].hostid;
 				};
 				
 				
